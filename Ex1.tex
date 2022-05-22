@@ -1,0 +1,62 @@
+\documentclass{article}
+\title{Lecture Notes for CV2022SS}
+\author{Qi Wang}
+\usepackage{amsmath}
+\begin{document}
+\maketitle
+\section*{homogeneous coordinates}
+Simply extend, for example 2D coodinate $X(x,y)$, with a new dimension $\tilde{w}$ to be its homogenous version $\tilde{X}(\tilde{x},\tilde{y},\tilde{w})$. For simplicity, we could use the augment vector whose $\tilde{w} = 1$.
+\section*{Transformation}
+a) assume the transformation matrix, given the translation transformation:\\
+
+\begin{equation*}
+	H_{3,3}=
+\begin{pmatrix}
+	1 & 0 & t_{1} \\
+	0 & 1 & t_{2} \\
+	0 & 0 & 1
+\end{pmatrix}
+\end{equation*}
+
+
+Knowing original point $\tilde{x_{orig}} = (1,2,1)^T$ and target one $\tilde{x_{tar}} = (0,3,1)^T$, then apply the rule of transformation: $\tilde{x\prime} = \tilde{H} \tilde{x}$, then we got $H$ as:
+
+\begin{equation*}
+	H_{2,3} = 
+\begin{pmatrix}
+	1 & 0 & -1 \\
+	0 & 1 & 1 \\
+\end{pmatrix}
+\end{equation*}
+
+\section*{Camera Projection}
+a)The calibration matrix(\textit{intrinsic matrix}) $\tilde{P}$ could be fit to template as:
+\begin{equation*}
+	\tilde{P} = 
+	\begin{pmatrix}
+		f_{x} & S & C_{x} & 0 \\
+		0 & f_{y} & C_{y} & 0 \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+where $C_{x}, C_{y}$ are \textbf{principal points}, $f_{x}, f_{y} $ are \textbf{focal length},(btw, also adjusting distortion rate to adjust images in the screen) which could be chained with transformation matrix:
+\begin{equation*}
+	\tilde{R} = 
+	\begin{pmatrix}
+		\cos\beta\cos\gamma & sin\alpha\sin\beta\cos\gamma - \cos\alpha\sin\gamma & \cos\alpha\sin\beta\cos\gamma + \sin\alpha\sin\gamma &t_{x} \\
+		\cos\beta\sin\gamma & \sin\alpha\sin\beta\sin\gamma+\cos\alpha\cos\gamma & \cos\alpha\sin\beta\sin\gamma - \sin\alpha\cos\gamma &t_{y}  \\
+		-\sin\beta & \sin\alpha\cos\beta & \cos\alpha\cos\beta & t_{z} \\
+		0 & 0 & 0 & 1
+	\end{pmatrix}
+\end{equation*} 
+b) apply the conditions in a) to above functions.
+
+\begin{itemize}
+	\item 
+\end{itemize}
+
+\section{Feature detection}
+\textbf{Feature points} describes local and salient appearance of an image, they can be used to describe and match images are the basis of 3D scene reconstruction.\\
+Features should be invariant of illumination and perspective, which should have silimar vectors.
+\end{document}

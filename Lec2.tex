@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+    \section{Line vectors}
+    To describe a line in 2D space one could use vecotr:$P(x_{p}, y_{p})$, to make sure a vector($V(x_{v},y_{v})$) intersect with the point, just make their inner product zero:
+    $$P\cdot V = 0$$
+
+    In a homogeneous coordinate, a line could be described as $$\{x,y \vert ax+by+c=0\}$$ because dot product means the length of projection of one vector to another, when valued zero, then two vectors are perpendicular, thus the line was described by its normal vector(perpendicular one). And in this example, the line vector $(x,y,1)$ is chosen in augmented plane for simplicity to multiply its homogeneous vecotr $\tilde{I}(a,b,c)$. 
+
+    \section{Line intersection(P12)}
+    Assuming two straight lines in 2D space:
+    $$a_{1}x + b_{1}y = c_{1}$$
+    $$a_{2}x + b_{2}y = c_{2}$$
+    Two easy ways to find their intersection point($p_{s}(x_{s}, y_{s})$):
+    \subsection{Skew-symmetric matrix}
+    This Skew-symmetric matrix is used to express cross product in metrices:
+    \begin{equation*}
+	    [\textbf{a}]_{x} = 
+	    \begin{pmatrix}
+		0 & -a_{3} & a_{2} \\
+		a_{3} & 0 & -a_{1} \\
+		-a_{2} & a_{1} & 0 
+	    \end{pmatrix}
+
+	    \textbf{a} \wedge \textbf{b} = [\textbf{a}]_{x} \textbf{b}
+    \end{equation*}
+    \begin{itemize}
+    \item substituting $(x_{s}, y_{s})$ into both line equations
+    \item Use Carmer's rule
+    \end{itemize}
+
+    \subsection*{Carmer's rule}
+    for $Ax=b$, where the $n\times n$ matrix $A$ has nonzero determinant, and $x=(x_{1},x_{2},\dots,x_{n})^{T}$ is a colume vector, the unique solution to the system is given by:
+    $$x_{i} = \frac{det(A_{i})}{det(A)}, \quad  i = 1,\dots,n$$
+    where $A_{i}$ is formed by replacing $i$-th column of $A$ by vector $b$.
+    
+    \section{Questions}
+    \begin{itemize}
+    \item The example in $p_{11}$ applied to the $d$ in $p_{8}$?
+    \item How to derive matrix in $P_{20}$ efficiently?
+    \end{itemize}
+    \end{document}

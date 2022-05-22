@@ -1,0 +1,14 @@
+\documentclass{article}
+\begin{document}
+\section{Cameral calibration}
+It is a process of finding intrinsic and extrinsic parameters.
+\section{Feature detection}
+\textbf{Point features} describe the appearance of local salient regions. Features should be invariant to perspective and illumination.
+Scale Invariant Feature Transform(SIFT) is one the way to detect features. It construct scale space by iteratively filering with different size of Guassian filter. The target feature(\textbf{interesting points}) are detected as local extreme in scaled images.
+\section{Two-frame, structure-from-motion}
+\subsection{Epipolar Geometry}
+Two cameras were placed locations, using rotation and translation matrix to describe. The 3D object point, centers of the two cameras form a \textbf{Epipolar plane}
+
+If homogenous vector has the last element is zero, then it's called infinity point; if the Epipolar points are infinity, the two cameras are parellel.
+
+\end{document}
